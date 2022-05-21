@@ -75,7 +75,7 @@ form button {
 
 
 input {
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
   line-height: 1.5;
   width: 100%;
   font-size: 1.5rem;
@@ -87,7 +87,7 @@ input {
 }
 
 button {
-  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   background-color: #282c34; /* Green */
   border: none;
   color: white;
