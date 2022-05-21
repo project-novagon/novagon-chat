@@ -86,8 +86,12 @@ input {
   padding: 0 10px;
 }
 
-button {
+.sent {
   border-bottom-right-radius: 20px;
+}
+
+.btn {
+  border-radius: 20px;
   background-color: #282c34; /* Green */
   border: none;
   color: white;
