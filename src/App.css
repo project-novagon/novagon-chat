@@ -1,10 +1,8 @@
 body {
-  border-radius: 20px;
   background-color: #282c34;
 }
 
 .App {
-  border-radius: 20px	;
   text-align: center;
   margin: 0 auto;
 }
@@ -29,19 +27,16 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   background-color: rgb(40, 37, 53);
 }
 
 main {
-
-  padding: 10px;
+  width: 100%;
   height: 80vh;
-  margin: 10vh 0 10vh;
   overflow-y: scroll;
-  display: flex;
-  flex-direction: column;
 }
-
 main::-webkit-scrollbar {
   width: 0.25rem;
 }
@@ -58,20 +53,20 @@ form {
   height: 10vh;
   position: fixed;
   bottom: 0;
+  background-color: rgb(24, 23, 23);
   width: 100%;
+
   display: flex;
   font-size: 1.5rem;
 }
 
 form button {
   width: 20%;
-  background-color: rgb(168, 168, 168);
-
+  background-color: rgb(56, 56, 143);
 }
 
 
 input {
-  border-bottom-left-radius: 20px;
   line-height: 1.5;
   width: 100%;
   font-size: 1.5rem;
@@ -82,22 +77,8 @@ input {
   padding: 0 10px;
 }
 
-.corner {
-  border-bottom-right-radius: 20px;
-  background-color: #00bbff; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
-  font-size: 1.25rem;
-}
-
-button{
-  
-  background-color: #1b2a4a; /* Green */
+button {
+  background-color: #282c34; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -151,12 +132,12 @@ p {
 }
 
 .sent p {
-  color: white;
-  background: #0b93f6;
+  color: rgb(255, 255, 255);
+  background: #00bca0;
   align-self: flex-end;
 }
 .received p {
-  background: #e5e5ea;
+  background: #ffffff;
   color: black;
 }
 
@@ -166,6 +147,11 @@ img {
   border-radius: 50%;
   margin: 2px 5px;
 }
+
 a{
   color: white;
+}
+
+a:hover{
+  color: #6649b8;
 }
