@@ -31,7 +31,7 @@ function App() {
     <div className="App">
       <header>
         <h1>iDevs Chat App</h1>
-        <a href='mailto://alphanged57@gmail.com'>Contact</a>
+        <a href='mailto://alphangred57@gmail.com'>Contact</a>
         <SignOut />
       </header>
 
