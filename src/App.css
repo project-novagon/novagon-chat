@@ -86,7 +86,7 @@ input {
 }
 
 button {
-  border-radius: 20px;
+  border-top-left-radius: 20px;
   background-color: #282c34; /* Green */
   border: none;
   color: white;
