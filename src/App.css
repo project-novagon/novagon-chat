@@ -90,7 +90,7 @@ input {
   border-bottom-right-radius: 20px;
 }
 
-.btn {
+button{
   border-radius: 20px;
   background-color: #282c34; /* Green */
   border: none;
