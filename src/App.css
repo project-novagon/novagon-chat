@@ -29,7 +29,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: rgb(40, 37, 53);
+  background-color: #ccc;
 }
 
 main {
