@@ -30,8 +30,9 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>iDevs Chat App</h1>
-        <a href='mailto://alphangred57@gmail.com'>Contact</a>
+        <h1>🔥 iDevs Chat App 🔥</h1>
+        <a href='mailto://alphangred57@gmail.com'>Contact</a> <br/>
+        <p>By iDev. Based on Fireships Chat App</p>
         <SignOut />
       </header>
 
