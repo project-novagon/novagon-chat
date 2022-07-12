@@ -32,7 +32,7 @@ function App() {
       <header>
         <h1>🔥 iDevs Chat App 🔥</h1>
         <a href='mailto://alphangred57@gmail.com'>Contact</a> <br/>
-        <p>By iDev. Based on Fireships Chat App</p>
+        <p>By iDev. Based on Fireships Chat Apps</p>
         <SignOut />
       </header>
 
@@ -70,7 +70,7 @@ function SignOut() {
 function ChatRoom() {
   const dummy = useRef();
   const messagesRef = firestore.collection('messages');
-  const query = messagesRef.orderBy('createdAt').limit(100);
+  const query = messagesRef.orderBy('createdAt').limit(500);
 
   const [messages] = useCollectionData(query, { idField: 'id' });
 
