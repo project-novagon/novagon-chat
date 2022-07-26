@@ -67,8 +67,8 @@ function SignIn() {
   }
   const CreateInWithEmail = () => {
     const email = document.getElementById('cemail').value;
-    const password = document.getElementById('cpassword').value;
-    auth.createUserWithEmailAndPassword(email, password).catch(alert);
+    const password = document.getElementById('password').value;
+    auth.signInWithEmailAndPassword(email, password).catch(alert);
   }
   return (
 
@@ -79,14 +79,16 @@ function SignIn() {
       <button className="sign-in" onClick={signInWithAsGuest}>Sign in As a guest</button>
       <form onSubmit={signInWithEmail}>
       
+      <p>Do not violate the ToS or you will be banned for life!</p>
       <input id="email" type="email" placeholder='E-Mail Address'/>
         <input id="password" type="password" placeholder='Password' />
         <button type="submit">Sign in with Email</button>
-        <input id="cemail" type="email" placeholder='E-Mail Address'/>
+      </form>
+      <form onSubmit={CreateInWithEmail}>
+      <input id="cemail" type="email" placeholder='E-Mail Address'/>
         <input id="cpassword" type="password" placeholder='Password' />
         <button type="submit">Create Account With Email</button>
       </form>
-      <p>Do not violate the ToS or you will be banned for life!</p>
     </>
   )
 
