@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>iDevs Chat App</h1>
+        <h1>iCA</h1>
         <a href='mailto://alphangred57@gmail.com'>Contact</a> <br/>
         <p>By iDev. Based on Fireships Chat Apps</p>
         <SignOut />
@@ -56,6 +56,11 @@ function SignIn() {
   }
   const signInWithAsGuest = () => {
     auth.signInAnonymously().catch(alert);
+  }
+  const signInWithEmail = () => {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    auth.signInWithEmailAndPassword(email, password).catch(alert);
   }
 
   return (
