@@ -60,16 +60,7 @@ function SignIn() {
     const FBprovider = new firebase.auth.FacebookAuthProvider();
     auth.signInWithPopup(FBprovider);
   }
-  const signInWithEmail = () => {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    auth.signInWithEmailAndPassword(email, password).catch(alert);
-  }
-  const CreateInWithEmail = () => {
-    const email = document.getElementById('cemail').value;
-    const password = document.getElementById('password').value;
-    auth.signInWithEmailAndPassword(email, password).catch(alert);
-  }
+  let SignUp = false;
   return (
 
     <>
@@ -78,19 +69,42 @@ function SignIn() {
       <button className="sign-in" onClick={signInWithFaceBook}>Sign in with Facebook</button>
       <button className="sign-in" onClick={signInWithAsGuest}>Sign in As a guest</button>
       <p>Do not violate the ToS or you will be banned for life!</p>
-      <form onSubmit={signInWithEmail}>
-      <input id="email" type="email" placeholder='E-Mail Address'/>
-        <input id="password" type="password" placeholder='Password' />
-        <button type="submit">Sign in with Email</button>
-      </form> <br/>
-      <form onSubmit={CreateInWithEmail}>
-      <input id="cemail" type="email" placeholder='E-Mail Address'/>
-        <input id="cpassword" type="password" placeholder='Password' />
-        <button type="submit">Create Account With Email</button>
-      </form>
+      <br/>
+      <a className="sign-in" onClick={() => SignUp = true}>i Dont Have An Account</a>	
+      {SignUp ? <CreateInWithEmail /> : <signInWithEmail />}
+      
     </>
   )
 
+}
+function signInWithEmail() {
+  const signInWithEmail = () => {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    auth.signInWithEmailAndPassword(email, password).catch(alert);
+  }
+
+return (
+  <form onSubmit={signInWithEmail}>
+  <input id="email" type="email" placeholder='E-Mail Address'/>
+    <input id="password" type="password" placeholder='Password' />
+    <button type="submit">Sign in with Email</button>
+  </form>
+)
+}
+function CreateInWithEmail() {
+  const CreateInWithEmail = () => {
+    const email = document.getElementById('cemail').value;
+    const password = document.getElementById('password').value;
+    auth.signInWithEmailAndPassword(email, password).catch(alert);
+  }
+  return (
+    <form onSubmit={CreateInWithEmail}>
+    <input id="cemail" type="email" placeholder='E-Mail Address'/>
+    <input id="cpassword" type="password" placeholder='Password' />
+    <button type="submit">Create Account With Email</button>
+    </form>
+  )
 }
 
 function SignOut() {
