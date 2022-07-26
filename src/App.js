@@ -6,7 +6,6 @@ import 'firebase/compat/firestore';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 firebase.initializeApp({
   apiKey: "AIzaSyANfFC73ZCDECWC7QnU-2DZmbnNwcYSiCQ",
