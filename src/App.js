@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1>EiDevs Chat App</h1>
+        <h1>iDevs Chat App</h1>
         <a href='mailto://alphangred57@gmail.com'>Contact</a> <br/>
         <p>By iDev. Based on Fireships Chat Apps</p>
         <SignOut />
@@ -54,7 +54,7 @@ function SignIn() {
   return (
     <>
       <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
-      <p>Do not violate the <a href='./tos.js'>ToS</a> or you will be banned for life!</p>
+      <p>Do not violate the <a href='#'>ToS</a> or you will be banned for life!</p>
     </>
   )
 
