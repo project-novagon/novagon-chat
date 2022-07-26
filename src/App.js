@@ -78,6 +78,7 @@ function SignIn() {
       
         <input id="email" type="email" aria-label='E-mail Address' />
         <input id="password" type="password" aria-label="Password" />
+        <button className="sign-in" type="submit">Sign in with Email</button>
       </form>
       <p>Do not violate the ToS or you will be banned for life!</p>
     </>
