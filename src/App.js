@@ -57,6 +57,10 @@ function SignIn() {
   const signInWithAsGuest = () => {
     auth.signInAnonymously().catch(alert);
   }
+  const signInWithFaceBook = () => {
+    const FBprovider = new firebase.auth.FacebookAuthProvider();
+    auth.signInWithPopup(FBprovider);
+  }
   const signInWithEmail = () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
@@ -66,10 +70,10 @@ function SignIn() {
   return (
     <>
       <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
-      
       <button className="sign-in" onClick={signInWithGitHub}>Sign in with GitHub</button>
+      <button className="sign-in" onClick={signInWithFaceBook}>Sign in with Facebook</button>
       <button className="sign-in" onClick={signInWithAsGuest}>Sign in As a guest</button>
-
+     <hr>or</hr>
       <p>Do not violate the ToS or you will be banned for life!</p>
     </>
   )
