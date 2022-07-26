@@ -54,12 +54,16 @@ function SignIn() {
     const GHprovider = new firebase.auth.GithubAuthProvider();
     auth.signInWithPopup(GHprovider);
   }
+  const signInWithAsGuest = () => {
+    auth.signInAnonymously().catch(alert);
+  }
 
   return (
     <>
       <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
       
       <button className="sign-in" onClick={signInWithGitHub}>Sign in with GitHub</button>
+      <button className="sign-in" onClick={signInWithAsGuest}>Sign in As a guest</button>
 
       <p>Do not violate the ToS or you will be banned for life!</p>
     </>
