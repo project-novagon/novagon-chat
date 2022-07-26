@@ -167,3 +167,13 @@ a{
 a:hover{
   color: #6649b8;
 }
+
+.link {
+  background-color: #18171700;
+  color: white;
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: #6649b8;
+}
