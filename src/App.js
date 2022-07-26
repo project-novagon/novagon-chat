@@ -77,13 +77,12 @@ function SignIn() {
       <button className="sign-in" onClick={signInWithGitHub}>Sign in with GitHub</button>
       <button className="sign-in" onClick={signInWithFaceBook}>Sign in with Facebook</button>
       <button className="sign-in" onClick={signInWithAsGuest}>Sign in As a guest</button>
-      <form onSubmit={signInWithEmail}>
-      
       <p>Do not violate the ToS or you will be banned for life!</p>
+      <form onSubmit={signInWithEmail}>
       <input id="email" type="email" placeholder='E-Mail Address'/>
         <input id="password" type="password" placeholder='Password' />
         <button type="submit">Sign in with Email</button>
-      </form>
+      </form> <br/>
       <form onSubmit={CreateInWithEmail}>
       <input id="cemail" type="email" placeholder='E-Mail Address'/>
         <input id="cpassword" type="password" placeholder='Password' />
