@@ -47,18 +47,20 @@ function App() {
 function SignIn() {
 
   const signInWithGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider);
+    const Gprovider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(Gprovider);
   }
   const signInWithGitHub = () => {
-    const provider = new firebase.auth.GithubAuthProvider();
-    auth.signInWithPopup(provider);
+    const GHprovider = new firebase.auth.GithubAuthProvider();
+    auth.signInWithPopup(GHprovider);
   }
 
   return (
     <>
       <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
+      
       <button className="sign-in" onClick={signInWithGitHub}>Sign in with GitHub</button>
+
       <p>Do not violate the ToS or you will be banned for life!</p>
     </>
   )
