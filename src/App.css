@@ -1,5 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600&family=Rubik:wght@300&display=swap');
 body {
-  background-color: #282c34;
+  background-color: #0f2f3a;
+  font-family: 'Rubik', sans-serif;
+}
+
+h1{
+  font-family: 'Quicksand', sans-serif;
+  font-size: 2.5rem;
+  color: #fff;
+  text-align: center;
+  margin-top: 2rem;
 }
 
 .App {
@@ -29,7 +39,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: rgb(221, 221, 221);
+  background-color: rgb(0, 0, 0);
   color: #181717;
 }
 
