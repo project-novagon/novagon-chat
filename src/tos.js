@@ -1,7 +1,4 @@
-import React from "react";
-import { Nav, NavLink, NavMenu } 
-    from "./tos";
-  
+import React from "react";  
 const TOS = () => {
   return (
     <><h1>iDev's Chat App ToS</h1>
