@@ -6,6 +6,7 @@ import 'firebase/compat/firestore';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 firebase.initializeApp({
   apiKey: "AIzaSyANfFC73ZCDECWC7QnU-2DZmbnNwcYSiCQ",
@@ -18,7 +19,6 @@ firebase.initializeApp({
   measurementId: "G-Q9CLKNEVMH"
   
 });
-
 const auth = firebase.auth();
 const firestore = firebase.firestore();
 
@@ -61,20 +61,25 @@ function SignIn() {
     const FBprovider = new firebase.auth.FacebookAuthProvider();
     auth.signInWithPopup(FBprovider);
   }
-  /*
+
   const signInWithEmail = () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     auth.signInWithEmailAndPassword(email, password).catch(alert);
   }
-  */
   return (
+
     <>
       <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
       <button className="sign-in" onClick={signInWithGitHub}>Sign in with GitHub</button>
       <button className="sign-in" onClick={signInWithFaceBook}>Sign in with Facebook</button>
       <button className="sign-in" onClick={signInWithAsGuest}>Sign in As a guest</button>
-     <hr>or</hr>
+      <h3>Or</h3>
+      <form onSubmit={signInWithEmail}>
+      
+        <input id="email" type="email" aria-label='E-mail Address' />
+        <input id="password" type="password" aria-label="Password" />
+      </form>
       <p>Do not violate the ToS or you will be banned for life!</p>
     </>
   )
