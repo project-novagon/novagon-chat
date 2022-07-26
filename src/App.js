@@ -61,12 +61,13 @@ function SignIn() {
     const FBprovider = new firebase.auth.FacebookAuthProvider();
     auth.signInWithPopup(FBprovider);
   }
+  /*
   const signInWithEmail = () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     auth.signInWithEmailAndPassword(email, password).catch(alert);
   }
-
+  */
   return (
     <>
       <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
