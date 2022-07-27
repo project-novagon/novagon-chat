@@ -31,7 +31,6 @@ function App() {
       <header>
         <h1>iCA</h1>
         <a href='mailto://alphangred57@gmail.com'>Contact</a> <br/>
-        <p>By iDev. Based on Fireships Chat Apps</p>
         <SignOut />
       </header>
 
