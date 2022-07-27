@@ -76,21 +76,22 @@ function SignIn() {
   )
 
 }
+/*
 function signInWithEmail() {
   const signInWithEmail = () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     auth.signInWithEmailAndPassword(email, password).catch(alert);
   }
-
-return (
-  <form onSubmit={signInWithEmail}>
-  <input id="email" type="email" placeholder='E-Mail Address'/>
+  return (
+    <form onSubmit={signInWithEmail}>
+    <input id="email" type="email" placeholder='E-Mail Address'/>
     <input id="password" type="password" placeholder='Password' />
     <button type="submit">Sign in with Email</button>
-  </form>
-)
-}
+    </form>
+    )
+  }
+  */
 function CreateInWithEmail() {
   const CreateInWithEmail = () => {
     const email = document.getElementById('cemail').value;
