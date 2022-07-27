@@ -47,18 +47,18 @@ function SignIn() {
 
   const signInWithGoogle = () => {
     const Gprovider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(Gprovider);
+    auth.signInWithPopup(Gprovider).catch(alert);
   }
   const signInWithGitHub = () => {
     const GHprovider = new firebase.auth.GithubAuthProvider();
-    auth.signInWithPopup(GHprovider);
+    auth.signInWithPopup(GHprovider).catch(alert);
   }
   const signInWithAsGuest = () => {
     auth.signInAnonymously().catch(alert);
   }
   const signInWithFaceBook = () => {
     const FBprovider = new firebase.auth.FacebookAuthProvider();
-    auth.signInWithPopup(FBprovider);
+    auth.signInWithPopup(FBprovider).catch(alert);
   }
   return (
 
