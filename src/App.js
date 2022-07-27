@@ -71,10 +71,7 @@ function SignIn() {
       </div>
       <p>Do not violate the ToS or you will be banned for life!</p>
       <br/>
-      <signInWithEmail />
-      <footer>
       <CreateInWithEmail />      
-      </footer>
     </>
   )
 
@@ -102,9 +99,9 @@ function CreateInWithEmail() {
   }
   return (
     <form onSubmit={CreateInWithEmail}>
-    <input id="cemail" type="email" placeholder='E-Mail Address'/>
-    <input id="cpassword" type="password" placeholder='Password' />
-    <button type="submit">Create Account With Email</button>
+    <input id="cemail" className='sign-in' type="email" placeholder='E-Mail Address'/>
+    <input id="cpassword" type="password" className='sign-in' placeholder='Password' />
+    <button type="submit" className='sign-in'>Create Account With Email</button>
     </form>
   )
 }
