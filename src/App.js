@@ -70,9 +70,10 @@ function SignIn() {
       <button className="sign-in" onClick={signInWithAsGuest}>Sign in As a guest</button>
       <p>Do not violate the ToS or you will be banned for life!</p>
       <br/>
-      <button className="link" onCllinick={() => SignUp = true}>E-mail Coming soon</button>	
+      <button className="link" onCllinick={() => SignUp = true}>E-mail Coming soon</button>
+      <section>
       {SignUp ? <CreateInWithEmail /> : <signInWithEmail />}
-      
+      </section>
     </>
   )
 
