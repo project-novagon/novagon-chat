@@ -69,44 +69,11 @@ function SignIn() {
       <button className="sign-in grelement" onClick={signInWithFaceBook}>Sign in with Facebook</button>
       <button className="sign-in grelement" onClick={signInWithAsGuest}>Sign in As a guest</button>
       </div>
-      <p>Do not violate the ToS or you will be banned for life!</p>
-      <br/>
-      <CreateInWithEmail />      
+      <p>Do not violate the ToS or you will be banned!</p>
     </>
   )
 
 }
-/*
-function signInWithEmail() {
-  const signInWithEmail = () => {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    auth.signInWithEmailAndPassword(email, password).catch(alert);
-  }
-  return (
-    <form onSubmit={signInWithEmail}>
-    <input id="email" type="email" placeholder='E-Mail Address'/>
-    <input id="password" type="password" placeholder='Password' />
-    <button type="submit">Sign in with Email</button>
-    </form>
-    )
-  }
-  */
-function CreateInWithEmail() {
-  const CreateInWithEmail = () => {
-    const email = document.getElementById('cemail').value;
-    const password = document.getElementById('password').value;
-    auth.signInWithEmailAndPassword(email, password).catch(alert);
-  }
-  return (
-    <form onSubmit={CreateInWithEmail}>
-    <input id="cemail" className='sign-in' type="email" placeholder='E-Mail Address'/>
-    <input id="cpassword" type="password" className='sign-in' placeholder='Password' />
-    <button type="submit" className='sign-in'>Create Account With Email</button>
-    </form>
-  )
-}
-
 function SignOut() {
   return auth.currentUser && (
     <button  className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
