@@ -60,7 +60,6 @@ function SignIn() {
     const FBprovider = new firebase.auth.FacebookAuthProvider();
     auth.signInWithPopup(FBprovider);
   }
-  let SignUp = false;
   return (
 
     <>
