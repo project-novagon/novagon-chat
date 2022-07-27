@@ -64,16 +64,18 @@ function SignIn() {
   return (
 
     <>
-      <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
-      <button className="sign-in" onClick={signInWithGitHub}>Sign in with GitHub</button>
-      <button className="sign-in" onClick={signInWithFaceBook}>Sign in with Facebook</button>
-      <button className="sign-in" onClick={signInWithAsGuest}>Sign in As a guest</button>
+      <div className="grid"> 
+      <button className="sign-in grelement" onClick={signInWithGoogle}>Sign in with Google</button>
+      <button className="sign-in grelement" onClick={signInWithGitHub}>Sign in with GitHub</button>
+      <button className="sign-in grelement" onClick={signInWithFaceBook}>Sign in with Facebook</button>
+      <button className="sign-in grelement" onClick={signInWithAsGuest}>Sign in As a guest</button>
+      </div>
       <p>Do not violate the ToS or you will be banned for life!</p>
       <br/>
       <button className="link" onCllinick={() => SignUp = true}>E-mail Coming soon</button>
-      <section>
+      <footer>
       {SignUp ? <CreateInWithEmail /> : <signInWithEmail />}
-      </section>
+      </footer>
     </>
   )
 

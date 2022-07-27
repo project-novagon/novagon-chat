@@ -177,3 +177,8 @@ a:hover{
 .link:hover {
   color: #6649b8;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
