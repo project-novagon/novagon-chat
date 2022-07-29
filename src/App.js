@@ -57,17 +57,17 @@ function SignIn() {
   }
   const signInWithFaceBook = () => {
     const FBprovider = new firebase.auth.FacebookAuthProvider();
-    auth.signInWithPopup(FBprovider).catch(alert);
+    auth.signInWithPopup(FBprovider).catch(console.log);
   }
   const signInWithEmail = () => {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    auth.signInWithEmailAndPassword(email, password).catch(alert);
+    auth.signInWithEmailAndPassword(email, password).catch(console.log);
   } 
   const CreateWithEmail = () => {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    auth.createUserWithEmailAndPassword(email, password).catch(alert);
+    const email = document.getElementById('cemail').value;
+    const password = document.getElementById('cpassword').value;
+    auth.createUserWithEmailAndPassword(email, password).catch(console.log);
   }
   return (
 
@@ -83,9 +83,9 @@ function SignIn() {
         <h2>Sign Up</h2>
         <form onSubmit={CreateWithEmail}>
           <label>Email:</label>
-          <input type='email' id='email' />
+          <input type='email' id='cemail' />
           <label>Password:</label>
-          <input type='password' id='password' />
+          <input type='password' id='cpassword' />
           <button type='submit'>Create</button>
         </form>
         <h2>Or Sign In With</h2>
