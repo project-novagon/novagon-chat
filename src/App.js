@@ -59,14 +59,44 @@ function SignIn() {
     const FBprovider = new firebase.auth.FacebookAuthProvider();
     auth.signInWithPopup(FBprovider).catch(alert);
   }
+  const signInWithEmail = () => {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    auth.signInWithEmailAndPassword(email, password).catch(alert);
+  } 
+  const CreateWithEmail = () => {
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    auth.createUserWithEmailAndPassword(email, password).catch(alert);
+  }
   return (
 
     <>
+      <h2>Sign In</h2>
+      <form onSubmit={signInWithEmail}>
+          <label>Email:</label>
+          <input type='email' id='email' />
+          <label>Password:</label>
+          <input type='password' id='password' />
+          <button type='submit'>Sign In</button>
+        </form>
+        <h2>Sign Up</h2>
+        <form onSubmit={CreateWithEmail}>
+          <label>Email:</label>
+          <input type='email' id='email' />
+          <label>Password:</label>
+          <input type='password' id='password' />
+          <button type='submit'>Create</button>
+        </form>
+        <h2>Or Sign In With</h2>
+      <div className='a'>
+       
       <div className="grid"> 
-      <button className="sign-in grelement" onClick={signInWithGoogle}>Sign in with Google</button>
-      <button className="sign-in grelement" onClick={signInWithGitHub}>Sign in with GitHub</button>
-      <button className="sign-in grelement" onClick={signInWithFaceBook}>Sign in with Facebook</button>
-      <button className="sign-in grelement" onClick={signInWithAsGuest}>Sign in As a guest</button>
+      <button className="sign-in grelement" onClick={signInWithGoogle}>Google</button>
+      <button className="sign-in grelement" onClick={signInWithGitHub}>GitHub</button>
+      <button className="sign-in grelement" onClick={signInWithFaceBook}>Facebook</button>
+      <button className="sign-in grelement" onClick={signInWithAsGuest}>As a guest</button>
+      </div>
       </div>
       <p>Do not violate the ToS or you will be banned!</p>
     </>
@@ -115,7 +145,7 @@ function ChatRoom() {
 
     </main>
 
-    <form onSubmit={sendMessage}>
+    <form className='MessageSender' onSubmit={sendMessage}>
 
       <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice..." />
 
