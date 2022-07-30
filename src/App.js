@@ -108,8 +108,6 @@ function SignOut() {
     <button  className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
   )
 }
-
-
 function ChatRoom() {
   const dummy = useRef();
   const messagesRef = firestore.collection('messages');
@@ -123,13 +121,14 @@ function ChatRoom() {
   const sendMessage = async (e) => {
     e.preventDefault();
 
-    const { uid, photoURL } = auth.currentUser;
+    const { uid, photoURL, displayName} = auth.currentUser;
 
     await messagesRef.add({
       text: formValue,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       uid,
-      photoURL
+      photoURL,
+      displayName
     })
 
     setFormValue('');
@@ -157,13 +156,13 @@ function ChatRoom() {
 
 
 function ChatMessage(props) {
-  const { text, uid, photoURL } = props.message;
+  const { text, uid, photoURL, displayName} = props.message;
 
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
   return (<>
     <div className={`message ${messageClass}`}>
-      <p>{uid}</p>
+      <p>{displayName}</p>
       <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} alt="The Profile placeholer"/>
       <p>{text}</p>
     </div>
