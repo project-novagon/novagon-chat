@@ -1,9 +1,7 @@
 import React, { useRef, useState } from 'react';
-import './App.css';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import Popup from './components/Popup';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
@@ -34,25 +32,13 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <h1>iCA</h1>
-        <a onClick={togglePopup} >Create a new network</a>
-        {isOpen && <Popup
-          content={<>
-            <b>Create a Network</b>
-            <p>Make What you Want! a study group, a gaming community, help for coding and more!</p>
-            <form>
-              <input placeholder='Network Name'></input>
-              <button type='submit'>Create Network</button>
-            </form>
-          </>}
-          handleClose={togglePopup}
-        />}
+      <header className='h-[10vh] sticky top-0 dark:bg-black'>
+        <h1 className='font-albertsans font-bold text-xl'>Novagon Chat</h1>
         <a href='mailto://alphangred57@gmail.com'>Contact</a> <br />
         <SignOut />
       </header>
 
-      <section>
+      <section className='bg-zinc-300 dark:bg-zinc-800 h-screen'>
         {user ? <ChatRoom /> : <SignIn />}
       </section>
 

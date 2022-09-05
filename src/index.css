@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-h1, p{
+h1, p, a{
     @apply dark:text-white
+}
+
+.message {
+    @apply flex items-center
+}
+
+.sent p {
+    @apply bg-primaryBlue-primary dark:bg-gray-secondary self-end
+}
+
+.received p {
+    @apply bg-white dark:bg-black
+}
+
+.MessageSender{
+    @apply h-[10vh]
 }
