@@ -3,7 +3,7 @@ import './App.css';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-
+import Popup from './components/Popup';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
@@ -16,7 +16,7 @@ firebase.initializeApp({
   messagingSenderId: "912253802832",
   appId: "1:912253802832:web:ca09700061d4f1705ff455",
   measurementId: "G-Q9CLKNEVMH"
-  
+
 });
 const auth = firebase.auth();
 const firestore = firebase.firestore();
@@ -25,12 +25,30 @@ const firestore = firebase.firestore();
 function App() {
 
   const [user] = useAuthState(auth);
+  const [isOpen, setIsOpen] = useState(false);
+ 
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  }
+
 
   return (
     <div className="App">
       <header>
         <h1>iCA</h1>
-        <a href='mailto://alphangred57@gmail.com'>Contact</a> <br/>
+        <a onClick={togglePopup} >Create a new network</a>
+        {isOpen && <Popup
+          content={<>
+            <b>Create a Network</b>
+            <p>Make What you Want! a study group, a gaming community, help for coding and more!</p>
+            <form>
+              <input placeholder='Network Name'></input>
+              <button type='submit'>Create Network</button>
+            </form>
+          </>}
+          handleClose={togglePopup}
+        />}
+        <a href='mailto://alphangred57@gmail.com'>Contact</a> <br />
         <SignOut />
       </header>
 
@@ -63,7 +81,7 @@ function SignIn() {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     auth.signInWithEmailAndPassword(email, password).catch(console.log);
-  } 
+  }
   const CreateWithEmail = () => {
     const email = document.getElementById('cemail').value;
     const password = document.getElementById('cpassword').value;
@@ -74,29 +92,29 @@ function SignIn() {
     <>
       <h2>Sign In</h2>
       <form onSubmit={signInWithEmail}>
-          <label>Email:</label>
-          <input type='email' id='email' />
-          <label>Password:</label>
-          <input type='password' id='password' />
-          <button type='submit'>Sign In</button>
-        </form>
-        <h2>Sign Up</h2>
-        <form onSubmit={CreateWithEmail}>
-          <label>Email:</label>
-          <input type='email' id='cemail' />
-          <label>Password:</label>
-          <input type='password' id='cpassword' />
-          <button type='submit'>Create</button>
-        </form>
-        <h2>Or Sign In With</h2>
+        <label>Email:</label>
+        <input type='email' id='email' />
+        <label>Password:</label>
+        <input type='password' id='password' />
+        <button type='submit'>Sign In</button>
+      </form>
+      <h2>Sign Up</h2>
+      <form onSubmit={CreateWithEmail}>
+        <label>Email:</label>
+        <input type='email' id='cemail' />
+        <label>Password:</label>
+        <input type='password' id='cpassword' />
+        <button type='submit'>Create</button>
+      </form>
+      <h2>Or Sign In With</h2>
       <div className='a'>
-       
-      <div className="grid"> 
-      <button className="sign-in grelement" onClick={signInWithGoogle}>Google</button>
-      <button className="sign-in grelement" onClick={signInWithGitHub}>GitHub</button>
-      <button className="sign-in grelement" onClick={signInWithFaceBook}>Facebook</button>
-      <button className="sign-in grelement" onClick={signInWithAsGuest}>As a guest</button>
-      </div>
+
+        <div className="grid">
+          <button className="sign-in grelement" onClick={signInWithGoogle}>Google</button>
+          <button className="sign-in grelement" onClick={signInWithGitHub}>GitHub</button>
+          <button className="sign-in grelement" onClick={signInWithFaceBook}>Facebook</button>
+          <button className="sign-in grelement" onClick={signInWithAsGuest}>As a guest</button>
+        </div>
       </div>
       <p>Do not violate the ToS or you will be banned!</p>
     </>
@@ -105,7 +123,7 @@ function SignIn() {
 }
 function SignOut() {
   return auth.currentUser && (
-    <button  className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
+    <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
   )
 }
 function ChatRoom() {
@@ -121,7 +139,7 @@ function ChatRoom() {
   const sendMessage = async (e) => {
     e.preventDefault();
 
-    const { uid, photoURL, displayName} = auth.currentUser;
+    const { uid, photoURL, displayName } = auth.currentUser;
 
     await messagesRef.add({
       text: formValue,
@@ -156,14 +174,14 @@ function ChatRoom() {
 
 
 function ChatMessage(props) {
-  const { text, uid, photoURL, displayName} = props.message;
+  const { text, uid, photoURL, displayName } = props.message;
 
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
   return (<>
     <div className={`message ${messageClass}`}>
       <p>{displayName}</p>
-      <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} alt="The Profile placeholer"/>
+      <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} alt="The Profile placeholer" />
       <p>{text}</p>
     </div>
   </>)
