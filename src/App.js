@@ -38,7 +38,7 @@ function App() {
         <SignOut />
       </header>
 
-      <section className='bg-zinc-300 dark:bg-zinc-800 h-screen'>
+      <section>
         {user ? <ChatRoom /> : <SignIn />}
       </section>
 
@@ -152,7 +152,7 @@ function ChatRoom() {
 
       <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice..." />
 
-      <button class="corner" type="submit" disabled={!formValue}>Send <span role="img" aria-label="Send Emoji">✈️</span></button>
+      <button class="dark:bg-zinc-600 bg-primaryBlue-primary" type="submit" disabled={!formValue}>Send <span role="img" aria-label="Send Emoji">✈️</span></button>
 
     </form>
   </>)

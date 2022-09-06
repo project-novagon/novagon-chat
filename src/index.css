@@ -19,5 +19,14 @@ h1, p, a{
 }
 
 .MessageSender{
-    @apply h-[10vh]
+    @apply h-[10vh] fixed bottom-0 bg-zinc-200 dark:bg-zinc-700 w-screen flex text-xs
+}
+
+form {
+    @apply w-[20%]
+    bg-primaryBlue-primary
+}
+
+body {
+    @apply bg-zinc-300 dark:bg-zinc-800 h-screen
 }
