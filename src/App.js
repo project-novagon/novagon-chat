@@ -23,18 +23,11 @@ const firestore = firebase.firestore();
 function App() {
 
   const [user] = useAuthState(auth);
-  const [isOpen, setIsOpen] = useState(false);
- 
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  }
-
 
   return (
     <div className="App">
-      <header className='h-[10vh] sticky top-0 dark:bg-black'>
+      <header className='h-[10vh] sticky top-0 dark:bg-zinc-900 bg-zinc-50 flex items-center justify-between'>
         <h1 className='font-albertsans font-bold text-xl'>Novagon Chat</h1>
-        <a href='mailto://alphangred57@gmail.com'>Contact</a> <br />
         <SignOut />
       </header>
 
@@ -150,7 +143,7 @@ function ChatRoom() {
 
     <form className='MessageSender' onSubmit={sendMessage}>
 
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice..." />
+      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} className="leading-3 w-[90%] text-xs px-1 w-screen" placeholder="What's on your mind?" />
 
       <button class="dark:bg-zinc-600 bg-primaryBlue-primary" type="submit" disabled={!formValue}>Send <span role="img" aria-label="Send Emoji">✈️</span></button>
 
