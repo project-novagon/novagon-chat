@@ -143,7 +143,7 @@ function ChatRoom() {
 
     <form className='MessageSender' onSubmit={sendMessage}>
 
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} className="leading-3 w-[90%] text-xs px-1 w-screen" placeholder="What's on your mind?" />
+      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} className="leading-3 w-96 text-xs px-1 dark:text-black font-albertsans opacity-100" placeholder="What's on your mind?" />
 
       <button class="dark:bg-zinc-600 bg-primaryBlue-primary" type="submit" disabled={!formValue}>Send <span role="img" aria-label="Send Emoji">✈️</span></button>
 

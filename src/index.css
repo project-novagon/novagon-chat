@@ -7,15 +7,15 @@
 }
 
 .sent p {
-    @apply bg-primaryBlue-primary dark:bg-gray-secondary self-end
+    @apply bg-primaryBlue-primary dark:bg-gray-secondary justify-self-end p-1 px-2 rounded-full
 }
 
 .received p {
-    @apply bg-white dark:bg-black
+    @apply bg-white dark:bg-black p-1 px-2 rounded-full
 }
 
 .MessageSender{
-    @apply h-[10vh] fixed bottom-0 bg-zinc-200 dark:bg-zinc-700 w-screen flex text-xs m-2
+    @apply h-[10vh] sticky bottom-0 bg-zinc-200 dark:bg-zinc-700 w-screen flex text-xs justify-center
 }
 
 form {
@@ -26,3 +26,18 @@ form {
 body {
     @apply bg-zinc-300 dark:bg-zinc-800 h-screen dark:text-white
 }
+
+main {
+    @apply w-screen h-[80vh] overflow-y-scroll
+  }
+  main::-webkit-scrollbar {
+    width: 0.25rem;
+  }
+  
+  main::-webkit-scrollbar-track {
+    @apply bg-zinc-900
+  }
+  
+  main::-webkit-scrollbar-thumb {
+    @apply bg-primaryBlue-primary
+  }
