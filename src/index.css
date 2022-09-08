@@ -43,7 +43,7 @@ main::-webkit-scrollbar-thumb {
 }
 
 button {
-  @apply dark:bg-zinc-700 bg-primaryBlue-primary text-white font-albertsans hover:bg-primaryBlue-50
+  @apply dark:bg-zinc-700 bg-primaryBlue-primary text-white font-albertsans hover:bg-primaryBlue-50 dark:hover:bg-zinc-600
 }
 
 .sign-out {

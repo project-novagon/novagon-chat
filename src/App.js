@@ -6,7 +6,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 firebase.initializeApp({
-  apiKey: "AIzaSyANfFC73ZCDECWC7QnU-2DZmbnNwcYSiCQ",
+  apiKey: process.env.API_KEY,
   authDomain: "idevs-chat-app.firebaseapp.com",
   databaseURL: "https://idevs-chat-app-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "idevs-chat-app",
