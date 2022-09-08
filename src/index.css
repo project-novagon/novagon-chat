@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .message {
-    @apply flex items-center
+    @apply flex items-center space-x-2
 }
 
 .sent p {
