@@ -4,6 +4,7 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { PaperAirplaneIcon } from '@heroicons/react/24/outline'
 
 firebase.initializeApp({
   apiKey: "AIzaSyANfFC73ZCDECWC7QnU-2DZmbnNwcYSiCQ",
@@ -26,8 +27,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className='h-[10vh] sticky top-0 dark:bg-zinc-900 bg-zinc-50 flex items-center justify-between'>
-        <h1 className='font-albertsans font-bold text-xl'>Novagon Chat</h1>
+      <header className='h-[10vh] sticky top-0 dark:bg-zinc-900 bg-zinc-50 flex items-center justify-between px-8'>
+        <h1 className='text-xl font-bold font-albertsans'>Novagon Chat</h1>
         <SignOut />
       </header>
 
@@ -143,9 +144,9 @@ function ChatRoom() {
 
     <form className='MessageSender' onSubmit={sendMessage}>
 
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} className="leading-3 w-96 text-xs px-1 dark:text-black font-albertsans opacity-100" placeholder="What's on your mind?" />
+      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} className="px-1 m-1 text-xs leading-3 rounded-md opacity-100 w-96 dark:text-black font-albertsans" placeholder="What's on your mind?" />
 
-      <button class="dark:bg-zinc-600 bg-primaryBlue-primary" type="submit" disabled={!formValue}>Send <span role="img" aria-label="Send Emoji">✈️</span></button>
+      <button class="dark:bg-zinc-600 bg-primaryBlue-primary px-5" type="submit" disabled={!formValue}> <PaperAirplaneIcon className='w-8'/> </button>
 
     </form>
   </>)
@@ -160,7 +161,7 @@ function ChatMessage(props) {
   return (<>
     <div className={`message ${messageClass}`}>
       <p>{displayName}</p>
-      <img className='w-9 h-9 rounded-full' src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} alt="pfp" />
+      <img className='rounded-full w-9 h-9' src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} alt="pfp" />
       <p>{text}</p>
     </div>
   </>)
