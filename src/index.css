@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .message {
-  @apply flex items-center space-x-2;
+  @apply flex items-center space-x-2 ;
 }
 
 .sent p {
@@ -15,7 +15,7 @@
 }
 
 .MessageSender {
-  @apply h-[10vh] sticky bottom-0  w-screen flex text-xs justify-center;
+  @apply h-[10vh] sticky bottom-0 py-1 w-screen flex text-xs justify-center;
 }
 
 form {
