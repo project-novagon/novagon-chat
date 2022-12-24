@@ -8,7 +8,7 @@ import { PaperAirplaneIcon } from '@heroicons/react/24/outline'
 
 firebase.initializeApp({
   apiKey: "AIzaSyANfFC73ZCDECWC7QnU-2DZmbnNwcYSiCQ",
-  authDomain: "idevs-chat-app.netlify.app",
+  authDomain: "idevs-chat-app.firebaseapp.com",
   databaseURL: "https://idevs-chat-app-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "idevs-chat-app",
   storageBucket: "idevs-chat-app.appspot.com",
@@ -44,14 +44,14 @@ function SignIn() {
 
   const signInWithGoogle = () => {
     const Gprovider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(Gprovider).catch(alert);
+    auth.signInWithPopup(Gprovider).catch(console.log);
   }
   const signInWithGitHub = () => {
     const GHprovider = new firebase.auth.GithubAuthProvider();
-    auth.signInWithPopup(GHprovider).catch(alert);
+    auth.signInWithPopup(GHprovider).catch(console.log);
   }
   const signInWithAsGuest = () => {
-    auth.signInAnonymously().catch(alert);
+    auth.signInAnonymously().catch(console.log);
   }
   const signInWithFaceBook = () => {
     const FBprovider = new firebase.auth.FacebookAuthProvider();
@@ -117,7 +117,7 @@ function ChatRoom() {
 
     <form className='MessageSender' onSubmit={sendMessage}>
 
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} className="px-4 text-lg leading-3 opacity-100 w-96 font-albertsans shadow-sm rounded-md m-1 ring-4 bg-zinc-300 dark:bg-zinc-500 ring-zinc-400 dark:ring-zinc-600 ring-inset focus:ring-zinc-500 focus:ring-4 dark:focus:ring-zinc-700 dark:focus:ring-4 " placeholder="What's on your mind?" />
+      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} className="px-4 m-1 text-lg leading-3 rounded-md shadow-sm opacity-100 w-96 font-albertsans ring-4 bg-zinc-300 dark:bg-zinc-500 ring-zinc-400 dark:ring-zinc-600 ring-inset focus:ring-zinc-500 focus:ring-4 dark:focus:ring-zinc-700 dark:focus:ring-4 " placeholder="What's on your mind?" />
 
       <button class="dark:bg-zinc-600 bg-primaryBlue-primary px-5" type="submit" disabled={!formValue}> <PaperAirplaneIcon className='w-8'/> </button>
 
