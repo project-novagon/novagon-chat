@@ -1,15 +1,14 @@
 import React, { useRef, useState } from 'react';
-import './App.css';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-import Popup from './components/Popup';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { PaperAirplaneIcon } from '@heroicons/react/24/outline'
 
 firebase.initializeApp({
   apiKey: "AIzaSyANfFC73ZCDECWC7QnU-2DZmbnNwcYSiCQ",
-  authDomain: "idevs-chat-app.firebaseapp.com",
+  authDomain: "idevs-chat-app.netlify.app",
   databaseURL: "https://idevs-chat-app-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "idevs-chat-app",
   storageBucket: "idevs-chat-app.appspot.com",
@@ -25,30 +24,11 @@ const firestore = firebase.firestore();
 function App() {
 
   const [user] = useAuthState(auth);
-  const [isOpen, setIsOpen] = useState(false);
- 
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  }
-
 
   return (
     <div className="App">
-      <header>
-        <h1>iCA</h1>
-        <a onClick={togglePopup} >Create a new network</a>
-        {isOpen && <Popup
-          content={<>
-            <b>Create a Network</b>
-            <p>Make What you Want! a study group, a gaming community, help for coding and more!</p>
-            <form>
-              <input placeholder='Network Name'></input>
-              <button type='submit'>Create Network</button>
-            </form>
-          </>}
-          handleClose={togglePopup}
-        />}
-        <a href='mailto://alphangred57@gmail.com'>Contact</a> <br />
+      <header className='h-[10vh] sticky top-0 dark:bg-zinc-900 bg-zinc-50 flex items-center justify-between px-8'>
+        <h1 className='text-xl font-bold font-albertsans'>Novagon Chat</h1>
         <SignOut />
       </header>
 
@@ -77,38 +57,11 @@ function SignIn() {
     const FBprovider = new firebase.auth.FacebookAuthProvider();
     auth.signInWithPopup(FBprovider).catch(console.log);
   }
-  const signInWithEmail = () => {
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    auth.signInWithEmailAndPassword(email, password).catch(console.log);
-  }
-  const CreateWithEmail = () => {
-    const email = document.getElementById('cemail').value;
-    const password = document.getElementById('cpassword').value;
-    auth.createUserWithEmailAndPassword(email, password).catch(console.log);
-  }
   return (
 
     <>
       <h2>Sign In</h2>
-      <form onSubmit={signInWithEmail}>
-        <label>Email:</label>
-        <input type='email' id='email' />
-        <label>Password:</label>
-        <input type='password' id='password' />
-        <button type='submit'>Sign In</button>
-      </form>
-      <h2>Sign Up</h2>
-      <form onSubmit={CreateWithEmail}>
-        <label>Email:</label>
-        <input type='email' id='cemail' />
-        <label>Password:</label>
-        <input type='password' id='cpassword' />
-        <button type='submit'>Create</button>
-      </form>
-      <h2>Or Sign In With</h2>
       <div className='a'>
-
         <div className="grid">
           <button className="sign-in grelement" onClick={signInWithGoogle}>Google</button>
           <button className="sign-in grelement" onClick={signInWithGitHub}>GitHub</button>
@@ -164,9 +117,9 @@ function ChatRoom() {
 
     <form className='MessageSender' onSubmit={sendMessage}>
 
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice..." />
+      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} className="px-4 text-lg leading-3 opacity-100 w-96 font-albertsans shadow-sm rounded-md m-1 ring-4 bg-zinc-300 dark:bg-zinc-500 ring-zinc-400 dark:ring-zinc-600 ring-inset focus:ring-zinc-500 focus:ring-4 dark:focus:ring-zinc-700 dark:focus:ring-4 " placeholder="What's on your mind?" />
 
-      <button class="corner" type="submit" disabled={!formValue}>Send <span role="img" aria-label="Send Emoji">✈️</span></button>
+      <button class="dark:bg-zinc-600 bg-primaryBlue-primary px-5" type="submit" disabled={!formValue}> <PaperAirplaneIcon className='w-8'/> </button>
 
     </form>
   </>)
@@ -181,7 +134,7 @@ function ChatMessage(props) {
   return (<>
     <div className={`message ${messageClass}`}>
       <p>{displayName}</p>
-      <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} alt="The Profile placeholer" />
+      <img className='rounded-full w-9 h-9' src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} alt="pfp" />
       <p>{text}</p>
     </div>
   </>)

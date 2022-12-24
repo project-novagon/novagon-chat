@@ -1,13 +1,50 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.message {
+  @apply flex items-center space-x-2 ;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.sent p {
+  @apply p-1 px-2 rounded-full bg-primaryBlue-primary dark:bg-gray-secondary justify-self-end;
+}
+
+.received p {
+  @apply p-1 px-2 bg-white rounded-full dark:bg-zinc-900;
+}
+
+.MessageSender {
+  @apply h-[10vh] sticky bottom-0 py-1 w-screen flex text-xs justify-center;
+}
+
+form {
+
+}
+
+body {
+  @apply h-screen bg-zinc-300 dark:bg-zinc-800 dark:text-white;
+}
+
+main {
+  @apply w-screen h-[80vh] overflow-y-scroll;
+}
+main::-webkit-scrollbar {
+  @apply w-4
+}
+
+main::-webkit-scrollbar-track {
+  @apply bg-zinc-50 dark:bg-zinc-900;
+}
+
+main::-webkit-scrollbar-thumb {
+  @apply m-1 rounded-full bg-primaryBlue-primary;
+}
+
+button {
+  @apply dark:bg-zinc-700 bg-primaryBlue-primary text-white font-albertsans hover:bg-primaryBlue-50 dark:hover:bg-zinc-600 m-1 rounded-md
+}
+
+.sign-out {
+  @apply p-3 rounded-md
 }
