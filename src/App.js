@@ -7,7 +7,7 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { PaperAirplaneIcon } from '@heroicons/react/24/outline'
 
 firebase.initializeApp({
-  apiKey: "AIzaSyANfFC73ZCDECWC7QnU-2DZmbnNwcYSiCQ",
+  apiKey: process.env.REACT_APP_API_KEY,
   authDomain: "idevs-chat-app.firebaseapp.com",
   databaseURL: "https://idevs-chat-app-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "idevs-chat-app",
