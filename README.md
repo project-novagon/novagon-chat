@@ -1,3 +1,3 @@
-# Nova Chat
+# Novagon Chat
 
-The Nova Chat App (_the thing that started it all._)
+The Open-Source Chat app by david
